@@ -1,0 +1,226 @@
+/* 1. Animation Styling */
+
+@keyframes logo_animation {
+  from {
+    width: 25px;
+    opacity: 0;
+  }
+  to {
+    width: 475px;
+    opacity: 1;
+  }
+}
+
+#logo {
+animation: logo_animation 5s;
+animation-iteration-count: 1; 
+}
+
+/* 2. Body: font family poppins, backup value serif */
+body {
+font-family: "poppins", serif;
+background-image: url(../images/concrete_seamless.png);
+background-color: #f1f1f1;
+}
+
+/* 3. header tag styling according to assignment instructions */
+
+header{
+display: flex;
+align-content: center;  
+flex-direction: column;  
+align-items: center;
+}
+
+/* 4: Nav Links Styling */
+.nav_links {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+/* 5. Style the link to remain the same color even after being visited */
+
+a:visited {
+  color: blue;
+}
+
+
+/* 6. styling the cards in the headers */
+.card > header {
+    background-color: #288080;
+    border: #45ADAD solid 2px;
+    padding: 20px 0px;
+    border-radius: 50px 50px 0px 0px;
+}
+
+
+/* 7. Card class */
+
+.card {
+    flex-basis: 450px;
+    border-radius: 50px 50px 0px 0px;
+    width: 75%;
+}
+
+/* 8. Styling pricing class */
+
+.pricing {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+/* 9. Gallery image styling */
+
+.gallery img {
+    border: solid 10px #50C7C7; 
+    margin: 10px; 
+    width: 300px; 
+}
+
+/* 10. Gallery class styling */
+
+.gallery {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px;
+  }
+
+/* 11. - 13.  */
+@media screen and (min-width: 900px) {
+
+    header {
+        flex-direction: row;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 0 20px; 
+      }
+    
+    .nav_links {
+        flex-direction: row; 
+        gap: 20px; 
+      }
+
+    .pricing {
+        flex-direction: row; 
+        justify-content: center; 
+        gap: 20px; 
+    }
+
+    .card {
+        flex-basis: 275px; 
+        width: 275px; 
+        height: auto; 
+        margin-bottom: 0; 
+    }
+
+    body>header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
+}
+
+/* 14. Styling for Reduced Motion */
+
+@media all and (prefers-reduced-motion: reduce){
+    #logo {
+        animation: none;
+      }
+}
+
+/* 15- 21 - styling for print view */
+@media print{
+
+    /* 15. and 16. Print View Body Styling */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: none;
+        background-color: #f1f1f1;
+    }
+
+    /* 17. Nav and Nav Links styling */
+
+    nav {
+        display: flex;
+        justify-content: center; 
+        width: 100%;
+    }
+
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 175px;
+    }
+    
+    /* 18. Pricing class styling */
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        align-items: end;
+        gap: 10px;
+    }
+
+    /* 19. Card class styling */
+    
+    .card {
+        display: flex;
+        flex-direction: column;
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+        width: 325px;
+        margin: 10px;
+        background-color: #ffffff;
+
+        
+        
+    }
+
+    /* .card button {
+        width: 90%;
+        height: 40px;
+        border: 0;
+        margin-left: 5%;
+        border-radius: 7px;
+        background: #288080;
+        color: white;
+        font-size: 1em;
+    } */
+
+    /* 20. Gallery should not be displayed */
+    .gallery {
+        display: none;
+    }
+
+    /* 21. Adding a thumbs up emoji */
+
+    .card ul li:nth-child(2)::after {
+        content: "👍";
+    }
+
+    .card > header {
+        background-color: #288080;
+        color: white;
+        border: #45ADAD solid 2px;
+        padding: 20px 0px;
+        border-radius: 50px 50px 0px 0px;
+        text-align: center;
+    }
+
+    .footer {
+        background-color: black;
+        color: white;
+    }
+
+
+
+
+}
