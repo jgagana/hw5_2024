@@ -1,5 +1,11 @@
-/* 1. Animation Styling */
+/* 
+   1. Logo Animation
+ 
+   Animates the logo when the page loads.
+   Starts small (25px) and transparent, grows to 475px. Opacity from 0 to 1.
+   Takes 5 seconds to complete and only runs once.
 
+*/
 @keyframes logo_animation {
   from {
     width: 25px;
@@ -12,41 +18,61 @@
 }
 
 #logo {
-animation: logo_animation 5s;
-animation-iteration-count: 1; 
+  animation: logo_animation 5s;
+  animation-iteration-count: 1; 
 }
 
-/* 2. Body: font family poppins, backup value serif */
+/*
+   2. Body Styling
+   Set up the body font to Poppins with a fallback serif.
+   Added an image background with a light grey fallback color.
+*/
 body {
-font-family: "poppins", serif;
-background-image: url(../images/concrete_seamless.png);
-background-color: #f1f1f1;
+  font-family: "poppins", serif;
+  background-image: url(../images/concrete_seamless.png);
+  background-color: #f1f1f1;
 }
 
-/* 3. header tag styling according to assignment instructions */
+/* 
+   3. Header
 
-header{
-display: flex;
-align-content: center;  
-flex-direction: column;  
-align-items: center;
+   Centered the content in the header vertically and horizontally.
+   Using flexbox for alignment.
+*/
+header {
+  display: flex;
+  align-content: center;  
+  flex-direction: column;  
+  align-items: center;
 }
 
-/* 4: Nav Links Styling */
+/* 
+   4. Navigation Links
+   
+   Nav links stack vertically in mobile view.
+   Changed this to a row layout for larger screens later.
+*/
 .nav_links {
   display: flex;
   flex-direction: column; 
   align-items: center; 
 }
 
-/* 5. Style the link to remain the same color even after being visited */
-
+/* 
+   5. visited link color styling
+   
+   Kept the color of links the same even after they’re visited.
+*/
 a:visited {
   color: blue;
 }
 
+/* 
+   6. card header styling
 
-/* 6. styling the cards in the headers */
+   Styled the header area of each card.
+   Added background color, border, padding, and rounded corners at the top.
+*/
 .card > header {
     background-color: #288080;
     border: #45ADAD solid 2px;
@@ -54,55 +80,73 @@ a:visited {
     border-radius: 50px 50px 0px 0px;
 }
 
-
-/* 7. Card class */
-
+/* 
+   7. Card styling
+  
+   Set initial size and width for cards. Rounded top corners.
+   Added Flex settings to make sure it scales well on different screens.
+*/
 .card {
     flex-basis: 450px;
     border-radius: 50px 50px 0px 0px;
     width: 75%;
 }
 
-/* 8. Styling pricing class */
+/* 
+   8. Pricing class styling
 
+   Centered the pricing section and makes sure all cards are lined up.
+*/
 .pricing {
     display: flex;
     flex-direction: column; 
     align-items: center; 
 }
 
-/* 9. Gallery image styling */
-
+/* 
+   9. Images gallery styling
+   
+   Added a border and fixed size to each image in the gallery.
+*/
 .gallery img {
     border: solid 10px #50C7C7; 
     margin: 10px; 
     width: 300px; 
 }
 
-/* 10. Gallery class styling */
+/* 
+   10. Gallery styling
 
+   Used flexbox to lay out images in a row, wrapping as needed.
+*/
 .gallery {
     display: flex;
     flex-direction: row; 
     flex-wrap: wrap; 
     justify-content: center; 
     gap: 10px;
-  }
+}
 
-/* 11. - 13.  */
+/* 
+   11-13. 900px screen breakpoint styling (min-width: 900px)
+   
+   Made layout changes for larger screens:
+   - Header aligns logo to the left and nav links to the right
+   - Nav links in a row with spacing
+   - Pricing cards in a row, evenly spaced
+*/
 @media screen and (min-width: 900px) {
-
     header {
         flex-direction: row;
         justify-content: space-between; 
         align-items: center;
         padding: 0 20px; 
-      }
-    
+    }
+
     .nav_links {
         flex-direction: row; 
         gap: 20px; 
-      }
+    }
 
     .pricing {
         flex-direction: row; 
@@ -117,6 +161,7 @@ a:visited {
         margin-bottom: 0; 
     }
 
+    /* Keeps the header at the top of the page as you scroll */
     body>header {
         position: sticky;
         top: 0;
@@ -126,25 +171,32 @@ a:visited {
     }
 }
 
-/* 14. Styling for Reduced Motion */
-
-@media all and (prefers-reduced-motion: reduce){
+/* 
+   14. Reduced Motion
+   
+   Will disable animation if user has prefers-reduced-motion enabled.
+*/
+@media all and (prefers-reduced-motion: reduce) {
     #logo {
         animation: none;
-      }
+    }
 }
 
-/* 15- 21 - styling for print view */
-@media print{
-
-    /* 15. and 16. Print View Body Styling */
+/*
+   15-21. Print view breakpoint styling
+   
+   Set up styles for printing:
+   - Changes font
+   - Removes background image
+   - Re-arranges nav and pricing sections for print
+*/
+@media print {
+    /* Body styling for print - no background image, simpler font */
     body {
         font-family: Arial, Helvetica, sans-serif;
         background-image: none;
         background-color: #f1f1f1;
     }
-
-    /* 17. Nav and Nav Links styling */
 
     nav {
         display: flex;
@@ -152,25 +204,24 @@ a:visited {
         width: 100%;
     }
 
+    /* Space out nav links to match example screenshot */
     .nav_links {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         gap: 175px;
     }
-    
-    /* 18. Pricing class styling */
+
+    /* Bottom-align the pricing cards in print view to match example screenshot */
     .pricing {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
         justify-content: center;
-        align-items: end;
         gap: 10px;
     }
 
-    /* 19. Card class styling */
-    
+    /* Style for printed cards - border, fixed width, and layout */
     .card {
         display: flex;
         flex-direction: column;
@@ -179,33 +230,19 @@ a:visited {
         width: 325px;
         margin: 10px;
         background-color: #ffffff;
-
-        
-        
     }
 
-    /* .card button {
-        width: 90%;
-        height: 40px;
-        border: 0;
-        margin-left: 5%;
-        border-radius: 7px;
-        background: #288080;
-        color: white;
-        font-size: 1em;
-    } */
-
-    /* 20. Gallery should not be displayed */
+    /* Hide the gallery section when printing as per HW5 instructions*/
     .gallery {
         display: none;
     }
 
-    /* 21. Adding a thumbs up emoji */
-
+    /* Add a thumbs-up emoji to specific list items */
     .card ul li:nth-child(2)::after {
         content: "👍";
     }
 
+    /* Print screen breakpoint styling for card headers */
     .card > header {
         background-color: #288080;
         color: white;
@@ -215,12 +252,9 @@ a:visited {
         text-align: center;
     }
 
+    /* Footer color for print */
     .footer {
         background-color: black;
         color: white;
     }
-
-
-
-
 }
